@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: backend-deployment
+  name: backend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: backend-deployment
+  template:
+    metadata:
+      labels:
+        run: backend-deployment
+    spec:
+      containers:
+      - image: registry.gitlab.com/flashbacker/backend:master-e39561ee
+        name: backend-deployment
+        ports:
+        - containerPort: 8081
+        envFrom:
+          - secretRef:
+              name: dynamodb
+        readinessProbe:
+          httpGet:
+            port: 8081
+            path: /
+      imagePullSecrets:
+      - name: regcred
