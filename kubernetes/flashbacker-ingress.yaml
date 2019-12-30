@@ -2,7 +2,16 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: flashbacker-ingress
+  annotations:
+    kubernetes.io/ingress.allow-http: "false"
+    kubernetes.io/ingress.global-static-ip-name: flashbacker-static-ip
+    networking.gke.io/managed-certificates: flashbacker-certificate
 spec:
-  backend:
-    serviceName: backend-service
-    servicePort: 8081
+  rules:
+    - host: flashbacker.vasas.dev
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: backend-service
+              servicePort: 8081
