@@ -11,7 +11,6 @@ spec:
     - host: flashbacker.vasas.dev
       http:
         paths:
-          - path: /
-            backend:
+          - backend:
               serviceName: backend-service
               servicePort: 8081
