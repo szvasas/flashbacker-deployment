@@ -4,3 +4,4 @@ data:
 kind: ConfigMap
 metadata:
   name: backend-url-configmap
+  namespace: flashbacker-qa

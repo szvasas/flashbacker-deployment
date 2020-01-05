@@ -4,6 +4,7 @@ metadata:
   labels:
     run: dynamodb-local-deployment
   name: dynamodb-local-deployment
+  namespace: flashbacker-qa
 spec:
   replicas: 1
   selector:

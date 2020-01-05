@@ -2,6 +2,7 @@ apiVersion: networking.gke.io/v1beta1
 kind: ManagedCertificate
 metadata:
   name: backend-managed-certificate
+  namespace: flashbacker-qa
 spec:
   domains:
     - api.flashbacker-qa.vasas.dev

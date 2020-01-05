@@ -4,6 +4,7 @@ metadata:
   labels:
     run: frontend-deployment
   name: frontend-deployment
+  namespace: flashbacker-qa
 spec:
   replicas: 1
   selector:
