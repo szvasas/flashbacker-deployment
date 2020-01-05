@@ -5,12 +5,18 @@ metadata:
   annotations:
     kubernetes.io/ingress.allow-http: "false"
     kubernetes.io/ingress.global-static-ip-name: flashbacker-static-ip
-    networking.gke.io/managed-certificates: flashbacker-certificate
+    networking.gke.io/managed-certificates: "backend-managed-certificate,frontend-managed-certificate"
 spec:
   rules:
-    - host: flashbacker.vasas.dev
+    - host: api.flashbacker-qa.vasas.dev
       http:
         paths:
           - backend:
               serviceName: backend-service
               servicePort: 8081
+    - host: flashbacker-qa.vasas.dev
+      http:
+        paths:
+          - backend:
+              serviceName: frontend-service
+              servicePort: 80

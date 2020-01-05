@@ -2,31 +2,31 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    run: backend-deployment
-  name: backend-deployment
+    run: frontend-deployment
+  name: frontend-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      run: backend-deployment
+      run: frontend-deployment
   template:
     metadata:
       labels:
-        run: backend-deployment
+        run: frontend-deployment
     spec:
       containers:
-      - image: registry.gitlab.com/flashbacker/backend:master-ed27b6a0
-        name: backend-deployment
+      - image: registry.gitlab.com/flashbacker/frontend:master-0a82df66
+        name: frontend-deployment
         ports:
-        - containerPort: 8081
+        - containerPort: 80
         envFrom:
           - secretRef:
-              name: dynamodb
+              name: cognito-secret
           - configMapRef:
-              name: jwk-set-uri-configmap
+              name: backend-url-configmap
         readinessProbe:
           httpGet:
-            port: 8081
+            port: 80
             path: /
       imagePullSecrets:
       - name: regcred
