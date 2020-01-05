@@ -15,13 +15,13 @@ spec:
         run: backend-deployment
     spec:
       containers:
-      - image: registry.gitlab.com/flashbacker/backend:master-ed27b6a0
+      - image: registry.gitlab.com/flashbacker/backend:master-12a0b119
         name: backend-deployment
         ports:
         - containerPort: 8081
         envFrom:
           - secretRef:
-              name: dynamodb
+              name: dynamodb-secret
           - configMapRef:
               name: jwk-set-uri-configmap
         readinessProbe:

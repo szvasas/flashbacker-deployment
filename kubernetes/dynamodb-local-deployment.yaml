@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: dynamodb-local-deployment
+  name: dynamodb-local-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: dynamodb-local-deployment
+  template:
+    metadata:
+      labels:
+        run: dynamodb-local-deployment
+    spec:
+      containers:
+      - image: amazon/dynamodb-local
+        name: dynamodb-local-deployment
+        ports:
+        - containerPort: 8000
+        readinessProbe:
+          tcpSocket:
+            port: 8000

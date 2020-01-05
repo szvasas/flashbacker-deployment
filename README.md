@@ -2,7 +2,7 @@ This project contains the Kubernetes manifests you can use to deploy Flashbacker
 The secrets to access DynamoDB, Cognito and GitLab registry have to be created the following way:
 
 ```
-kubectl create secret generic dynamodb --from-literal=FLASHBACKER_DYNAMODB_ACCESS_KEY=<access_key> --from-literal=FLASHBACKER_DYNAMODB_SECRET_KEY=<secret_key>  --from-literal=FLASHBACKER_DYNAMODB_REGION=<region>
+kubectl create secret generic dynamodb-secret --from-literal=FLASHBACKER_DYNAMODB_ENDPOINT=http://dynamodb-local-service:8000 --from-literal=FLASHBACKER_DYNAMODB_REGION=
 ```
 
 ```
