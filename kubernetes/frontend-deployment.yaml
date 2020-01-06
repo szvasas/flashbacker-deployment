@@ -16,7 +16,7 @@ spec:
         run: frontend-deployment
     spec:
       containers:
-      - image: registry.gitlab.com/flashbacker/frontend:master-05194f32
+      - image: registry.gitlab.com/flashbacker/frontend:master-d241a2e3
         name: frontend-deployment
         ports:
         - containerPort: 80
@@ -29,5 +29,12 @@ spec:
           httpGet:
             port: 80
             path: /
+        volumeMounts:
+          - name: nginx-configmap-volume
+            mountPath: /etc/nginx/conf.d
       imagePullSecrets:
       - name: regcred
+      volumes:
+        - name: nginx-configmap-volume
+          configMap:
+            name: nginx-configmap
