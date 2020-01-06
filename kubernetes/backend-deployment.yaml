@@ -29,5 +29,8 @@ spec:
           httpGet:
             port: 8081
             path: /
+        securityContext:
+          runAsUser: 1000
+          allowPrivilegeEscalation: false
       imagePullSecrets:
       - name: regcred
