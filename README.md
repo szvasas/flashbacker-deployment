@@ -10,5 +10,5 @@ kubectl create secret generic cognito-secret --from-literal=FLASHBACKER_COGNITO_
 ```
 
 ```
-kubectl create secret docker-registry regcred --docker-server=registry.gitlab.com --docker-username=vasas --docker-password=<token>
+kubectl create secret docker-registry gitlab-registry-secret --docker-server=registry.gitlab.com --docker-username=vasas --docker-password=<token>
 ```
