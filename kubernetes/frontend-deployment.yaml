@@ -16,7 +16,7 @@ spec:
         run: frontend-deployment
     spec:
       containers:
-      - image: registry.gitlab.com/flashbacker/frontend:master-c155cf58
+      - image: registry.gitlab.com/flashbacker/frontend:master-ed206dea
         name: frontend-deployment
         ports:
         - containerPort: 80
