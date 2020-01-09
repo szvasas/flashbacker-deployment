@@ -16,7 +16,7 @@ spec:
         run: backend-deployment
     spec:
       containers:
-      - image: registry.gitlab.com/flashbacker/backend:master-5c5199f6
+      - image: registry.gitlab.com/flashbacker/backend:master-6e305c24
         name: backend-deployment
         ports:
         - containerPort: 8081
